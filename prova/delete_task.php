@@ -1,17 +1,6 @@
 <?php
 
-$servername = "db"; // Nome do serviço do banco no docker-compose.yml
-$username = "root";
-$password = "rootpassword";
-$dbname = "prova_pratica";
-
-// Conectando ao banco de dados
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificando a conexão
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
+require_once 'db_connection.php'; // Importa a conexão com o banco
 
 // Pegando o id da tarefa via POST
 $id = $_POST['id'];

@@ -1,16 +1,6 @@
 <?php
-$servername = "db";
-$username = "root";
-$password = "rootpassword";
-$dbname = "prova_pratica";
 
-// Conectar ao banco de dados
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar conexão
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
+require_once 'db_connection.php'; // Importa a conexão com o banco
 
 // Verificar se os dados foram recebidos via POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {

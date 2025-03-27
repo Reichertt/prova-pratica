@@ -136,18 +136,8 @@ function editTask(button) {
     let taskDate = taskLi.querySelector('.task-date').innerText.trim(); // Obtendo a data
     let taskImportantElement = taskLi.querySelector('.task-important');
 
-    if (!taskImportantElement) {
-        console.log("Elemento .task-important não encontrado.");
-        return;
-    }
-
     let taskImportant = taskImportantElement.innerText.trim();
-    let importanceText = taskImportant.split(':')[1]?.trim();  // Corrigido com optional chaining
-
-    if (!importanceText) {
-        console.log("Importância não encontrada ou mal formatada.");
-        importanceText = "Baixa"; // Valor padrão
-    }
+    let importanceText = taskImportant.split(':')[0]?.trim();  // Corrigido com optional chaining
 
     let importanceValue;
     switch (importanceText.toLowerCase()) {
@@ -185,8 +175,6 @@ function editTask(button) {
         let [day, month, year] = datePart.trim().split('/'); // Divide a data
         formattedDate = `${year}-${month}-${day}T${timePart.trim()}`; // Formata para o formato ISO
     }
-
-    console.log(formattedDate); // Verifique se a data foi formatada corretamente
 
     // Preencher os campos do modal
     document.getElementById("editTaskInputTitle").value = taskTitulo;
